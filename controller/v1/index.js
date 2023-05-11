@@ -31,6 +31,9 @@ const dialogController = {
   },
   jeyson: (req, res) => {
     res.send('Jeyson Boursault')
+  },
+  post: (req, res) => {
+    res.send('post')
   }
 }
 

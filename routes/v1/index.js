@@ -66,4 +66,15 @@ router.get('/dialog/answer/:id', dialogController.findById)
  */
 router.get('/jeyson', dialogController.jeyson)
 
+/**
+ * @swagger
+ * /api/v1/post:
+ *  post:
+ *    description: post test
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+router.post('/post', dialogController.post);
+
 module.exports = router
