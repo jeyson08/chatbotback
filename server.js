@@ -17,12 +17,11 @@ const dialogs = [
     }
 ]
 
+app.use('/api/v1', require('./routes/v1'))
+
 app.use(express.json())
 
 
-app.get('/', middleware, (req, res) => {
-    res.send('Hello World!')
-})
 
 app.post('/api/v1/dialogs', (req, res) => {
     console.log(req.body.question)
@@ -52,3 +51,8 @@ function middleware(req, res, next) {
     console.log('coucou')
     next()
 }
+
+//route 404
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/view/404.html')
+})

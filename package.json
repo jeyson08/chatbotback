@@ -1,7 +1,7 @@
 {
   "name": "node",
   "version": "1.0.0",
-  "description": "",
+  "description": "projet hébergé sur render.com pour un projet de chatbot",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,5 +12,13 @@
   "dependencies": {
     "express": "^4.18.2",
     "nodemon": "^2.0.22"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeyson08/chatbotback.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeyson08/chatbotback/issues"
+  },
+  "homepage": "https://github.com/jeyson08/chatbotback#readme"
 }
