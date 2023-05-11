@@ -10,4 +10,6 @@ router.get('/dialog/questions', dialogController.findAllQuestions)
 
 router.get('/dialog/answer/:id', dialogController.findById)
 
+router.get('/jeyson', dialogController.jeyson)
+
 module.exports = router

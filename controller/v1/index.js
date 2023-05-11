@@ -28,6 +28,9 @@ const dialogController = {
     const dialog = dialogs.find(dialog => dialog.id === parseInt(req.params.id))
     if (!dialog) return res.status(404).send('Dialog not found')
     res.json(dialog)
+  },
+  jeyson: (req, res) => {
+    res.send('Jeyson Boursault')
   }
 }
 
