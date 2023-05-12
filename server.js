@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require('path');
-const mongoose = require('mongoose')
+//const mongoose = require('mongoose')
 const dialogs = [
     {
         question : "salut",
