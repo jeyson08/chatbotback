@@ -3,7 +3,6 @@ const app = express()
 const port = 3000
 const path = require('path');
 const mongoose = require('mongoose')
-const cors = require('cors')
 const dialogs = [
     {
         question : "salut",
@@ -39,6 +38,7 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
+const cors = require('cors')
 app.use(cors())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
