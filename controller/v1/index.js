@@ -33,7 +33,7 @@ const dialogController = {
     res.send('Jeyson Boursault')
   },
   post: (req, res) => {
-    res.send('post')
+    res.json('post')
   }
 }
 

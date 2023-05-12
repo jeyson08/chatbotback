@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require('path');
+const mongoose = require('mongoose')
+const cors = require('cors')
 const dialogs = [
     {
         question : "salut",
@@ -36,13 +38,17 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
+
+app.use(cors())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use('/api/v1', require('./routes/v1'))
 
 app.use(express.json())
 
-
+mongoose.connect('mongodb+srv://jeyson:080395@saintjo.5xau2ma.mongodb.net/')
+.then(console.log("connexion réussie"))
+.catch((error)=>{console.log(error)})
 
 app.post('/api/v1/dialogs', (req, res) => {
     console.log(req.body.question)
