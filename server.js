@@ -46,9 +46,9 @@ app.use('/api/v1', require('./routes/v1'))
 
 app.use(express.json())
 
-mongoose.connect('mongodb+srv://jeyson:080395@saintjo.5xau2ma.mongodb.net/')
-.then(console.log("connexion réussie"))
-.catch((error)=>{console.log(error)})
+// mongoose.connect('mongodb+srv://jeyson:080395@saintjo.5xau2ma.mongodb.net/')
+// .then(console.log("connexion réussie"))
+// .catch((error)=>{console.log(error)})
 
 app.post('/api/v1/dialogs', (req, res) => {
     console.log(req.body.question)
