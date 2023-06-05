@@ -2,7 +2,16 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require('path');
-//const mongoose = require('mongoose')
+const { Sequelize } = require('sequelize')
+const Chat = require("./models/chat")
+
+const sequelize = new Sequelize({
+    dialect: "sqlite",
+    storage: "./db/database.sqlite"
+})
+
+
+
 const dialogs = [
     {
         question : "salut",
@@ -38,13 +47,17 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
-const cors = require('cors')
+const cors = require('cors');
+const SqlString = require('mysql/lib/protocol/SqlString');
+const { start } = require('repl');
 app.use(cors())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
+app.use(express.json())
+
 app.use('/api/v1', require('./routes/v1'))
 
-app.use(express.json())
+
 
 // mongoose.connect('mongodb+srv://jeyson:080395@saintjo.5xau2ma.mongodb.net/')
 // .then(console.log("connexion réussie"))
@@ -83,3 +96,15 @@ function middleware(req, res, next) {
 app.get('*', (req, res) => {
     res.sendFile(__dirname + '/view/404.html')
 })
+
+
+async function startServer() {
+    try {
+        await sequelize.authenticate()
+        console.log("connexion réussie")
+    } catch (error) {
+        console.error("erreur de connexion", error)
+    }
+}
+
+startServer()

@@ -35,6 +35,12 @@ router.get('/test', dialogController.test)
  */
 router.get('/dialog/questions', dialogController.findAllQuestions)
 
+router.get('/dialog/answers', dialogController.findAllAnswers)
+
+router.get('/alldialogs', dialogController.findAllDialogs)
+
+router.post('/createchatdeux', dialogController.CreateChat)
+
 /**
  * @swagger
  * /api/v1/dialog/answer/{id}:
@@ -76,5 +82,10 @@ router.get('/jeyson', dialogController.jeyson)
  *        description: A successful response
  */
 router.post('/post', dialogController.post);
+
+
+router.get('/chatbuild', (req,res) => {
+    res.json({message:"Création de chat"})
+})
 
 module.exports = router
