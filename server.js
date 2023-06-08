@@ -31,7 +31,6 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 const cors = require('cors');
-const SqlString = require('mysql/lib/protocol/SqlString');
 const { start } = require('repl');
 app.use(cors())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
