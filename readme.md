@@ -13,6 +13,10 @@ Affichage de la page du développeur du projet : [lien api](https://api-chatbot-
 
 Affichage des questions : [lien api](https://api-chatbot-lw0x.onrender.com/api/v1/dialog/questions)
 
+Affichage des réponses : [lien api](https://api-chatbot-lw0x.onrender.com/api/v1/dialog/answers)
+
+Doc Swagger : [lien Swagger](https://api-chatbot-lw0x.onrender.com/api-docs/)
+
 
 
 
