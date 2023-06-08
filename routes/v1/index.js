@@ -35,12 +35,55 @@ router.get('/test', dialogController.test)
  */
 router.get('/dialog/questions', dialogController.findAllQuestions)
 
+/**
+ * @swagger
+ * /api/v1/dialog/questions:
+ *  get:
+ *    description: Use to request all answers
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
 router.get('/dialog/answers', dialogController.findAllAnswers)
 
+/**
+ * @swagger
+ * /api/v1/dialog/questions:
+ *  get:
+ *    description: Use to request all dialogs
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
 router.get('/alldialogs', dialogController.findAllDialogs)
 
+/**
+ * @swagger
+ * /api/v1/createchat:
+ *  post:
+ *    description: Use to create a new chat
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
 router.post('/createchat', dialogController.CreateChat)
 
+/**
+ * @swagger
+ * /api/v1/update/{id}:
+ *  put:
+ *    description: Use to update a chat by ID
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        description: ID of the chat
+ *        required: true
+ *        schema:
+ *          type: string
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
 router.put('/update/:id', dialogController.update)
 
 /**
@@ -80,6 +123,22 @@ router.get('/jeyson', dialogController.jeyson)
 //     res.json({message:"Création de chat"})
 // })
 
+/**
+ * @swagger
+ * /api/v1/delete/{id}:
+ *  delete:
+ *    description: Use to delete a chat by ID
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        description: ID of the chat
+ *        required: true
+ *        schema:
+ *          type: string
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
 router.delete('/delete/:id', dialogController.deletebyid)
 
 module.exports = router
