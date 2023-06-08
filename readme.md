@@ -7,7 +7,7 @@ projet hébergé sur render.com pour la création d'un chatbot
 
 # ROUTES
 
-Affichage des questions et des réponses : [lien api](https://api-chatbot-lw0x.onrender.com/api/v1//alldialogs)
+Affichage des questions et des réponses : [lien api](https://api-chatbot-lw0x.onrender.com/api/v1/alldialogs)
 
 Affichage de la page du développeur du projet : [lien api](https://api-chatbot-lw0x.onrender.com/api/v1/jeyson)
 
