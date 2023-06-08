@@ -47,7 +47,7 @@ const dialogController = {
   },
   update: async (req, res) => {
     try {
-      const { id } = req.params;
+      const id = req.params.id;
       const [ updated ] = await Chat.update(req.body, { where: { id: id }});
       if (updated) {
         const updatedChat = await Chat.findOne({ where: { id: id } });
