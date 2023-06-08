@@ -46,17 +46,18 @@ const dialogController = {
     res.send('deleted')
   },
   update: async (req, res) => {
-    const chattoupdtate = await Chat.findByPk(id)
-    const updatechat = chattoupdtate.update({ question: req.body.question, answer: req.body.answer });
-    async function updatesave() {
-        await updatechat.updatesave();
-        console.log(updatechat)
-        console.log('modification réussie !');
+    try {
+      const { id } = req.params;
+      const [ updated ] = await Chat.update(req.body, { where: { id: id }});
+      if (updated) {
+        const updatedChat = await Chat.findOne({ where: { id: id } });
+        res.status(200).json(updatedChat);
+      } else {
+        res.status(404).send("Chat with the specified ID does not exists");
+      }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
-    updatesave()
-    res.status(200).json({
-        message : "updated"
-    })
   },
   jeyson: (req, res) => {
     res.send('Jeyson Boursault')
