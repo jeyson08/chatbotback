@@ -1,17 +1,3 @@
-const dialogs = [
-    {
-        question : "salut",
-        answer : "coucou"
-    },
-    {
-        question : "ça va",
-        answer : "oui"
-    },
-    {
-        question : "quel age as tu",
-        answer : "20 ans"
-    }
-]
 const Chat = require("../../models/chat")
 
 const dialogController = {
@@ -45,16 +31,35 @@ const dialogController = {
         message : "created"
     })
   },
-  findById: (req, res) => {
-    const dialog = dialogs.find(dialog => dialog.id === parseInt(req.params.id))
-    if (!dialog) return res.status(404).send('Dialog not found')
+  findById: async (req, res) => {
+    const id = req.params.id
+    const dialog = await Chat.findByPk(id);
     res.json(dialog)
+  },
+  deletebyid: async (req, res) => {
+    const id = req.params.id
+    async function remove() {
+      await Chat.destroy({ where: {id: id}})
+      console.log('this chat was removed from the database!');
+    }
+    await remove()    
+    res.send('deleted')
+  },
+  update: async (req, res) => {
+    const chattoupdtate = await Chat.findByPk(id)
+    const updatechat = chattoupdtate.update({ question: req.body.question, answer: req.body.answer });
+    async function updatesave() {
+        await updatechat.updatesave();
+        console.log(updatechat)
+        console.log('modification réussie !');
+    }
+    updatesave()
+    res.status(200).json({
+        message : "updated"
+    })
   },
   jeyson: (req, res) => {
     res.send('Jeyson Boursault')
-  },
-  post: (req, res) => {
-    res.json('post')
   }
 }
 

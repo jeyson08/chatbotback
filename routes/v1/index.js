@@ -39,7 +39,9 @@ router.get('/dialog/answers', dialogController.findAllAnswers)
 
 router.get('/alldialogs', dialogController.findAllDialogs)
 
-router.post('/createchatdeux', dialogController.CreateChat)
+router.post('/createchat', dialogController.CreateChat)
+
+router.put('/update/:id', dialogController.update)
 
 /**
  * @swagger
@@ -59,7 +61,7 @@ router.post('/createchatdeux', dialogController.CreateChat)
  *      '404':
  *        description: Dialog not found
  */
-router.get('/dialog/answer/:id', dialogController.findById)
+router.get('/dialog/:id', dialogController.findById)
 
 /**
  * @swagger
@@ -72,20 +74,12 @@ router.get('/dialog/answer/:id', dialogController.findById)
  */
 router.get('/jeyson', dialogController.jeyson)
 
-/**
- * @swagger
- * /api/v1/post:
- *  post:
- *    description: post test
- *    responses:
- *      '200':
- *        description: A successful response
- */
-router.post('/post', dialogController.post);
 
 
-router.get('/chatbuild', (req,res) => {
-    res.json({message:"Création de chat"})
-})
+// router.get('/chatbuild', (req,res) => {
+//     res.json({message:"Création de chat"})
+// })
+
+router.delete('/delete/:id', dialogController.deletebyid)
 
 module.exports = router
